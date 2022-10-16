@@ -54,7 +54,6 @@ func (c CLIENT) startTokenCheck() error {
 	defer resp.Body.Close()
 	fmt.Println("\033[1m\033[0;97m[INFO] \033[0;95mTrying to tunnel on PROXY \033[1m\033[0;97m[ " + tunnel + " ]\033[0m")
 
-	fmt.Println(body)
 	if resp.StatusCode == 200 {
 		fmt.Println("\033[1m\033[0;97m[INFO] \033[0;32mTunnel success PROXIED! \033[1m\033[0;97m[ " + tunnel + " ]\033[0m\n")
 		if strings.Contains(body, "username") && strings.Contains(body, "error") == false {
