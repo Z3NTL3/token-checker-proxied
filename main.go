@@ -56,14 +56,14 @@ func (c CLIENT) startTokenCheck() error {
 
 	if resp.StatusCode == 200 {
 		fmt.Println("\033[1m\033[0;97m[INFO] \033[0;32mTunnel success PROXIED! \033[1m\033[0;97m[ " + tunnel + " ]\033[0m\n")
-		if strings.Contains(body, "username") && !strings.Contains(body, "error") {
+		if strings.Contains(body, "username") && strings.Contains(body, "error") == false {
 			fmt.Println("\033[1m\033[0;97m[INFO] \033[32mGood Token: \033[1m\033[0;97m", token, "\033[0m")
 			c.file.WriteString(token + "\n")
 			goods += 1
 		} else {
 			fmt.Println("\033[1m\033[0;97m[INFO] \033[31mBad Token: \033[1m\033[0;97m", token, "\033[0m")
 		}
-	} else if !strings.Contains(body, "error") {
+	} else if strings.Contains(body, "error") == false {
 		fmt.Println("\033[1m\033[0;97m[INFO] \033[0;32mTunnel success PROXIED! \033[1m\033[0;97m[ " + tunnel + " ]\033[0m\n")
 		fmt.Println("\033[1m\033[0;97m[INFO] \033[31mBad Token: \033[1m\033[0;97m", token, "\033[0m")
 	} else {
