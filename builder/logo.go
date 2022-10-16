@@ -3,9 +3,11 @@ package builder
 import (
 	"math/rand"
 	"strings"
+	"time"
 )
 
 func LogoBuild() (logo string) {
+	rand.Seed(time.Now().UnixNano())
 	color_palette := []string{"\033[38;5;97m", "\033[38;5;98m", "\033[38;5;97m", "\033[38;5;96m"}
 	logo_build := []string{
 		"\t╔╦╗╔═╗╦╔═   ╔═╗╔═╗",
