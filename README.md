@@ -8,7 +8,7 @@ A concurrent and fast Go script to perform token checking for Discord. It's prox
 
 # How to run
 On your terminal:
-```./token-checker.exe tokenfile.txt```
+```./token-checker-layered.exe tokenfile.txt```
 
 ### How to compile
 One-time run:
