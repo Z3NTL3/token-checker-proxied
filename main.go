@@ -15,6 +15,7 @@ import (
 
 	request "github.com/parnurzeal/gorequest"
 	"golang.org/x/sync/errgroup"
+	"gopkg.in/ini.v1"
 )
 
 const (
@@ -111,14 +112,13 @@ func main() {
 		return
 	}
 	defer f.Close()
-	proxy, err := os.ReadFile("proxy.ini")
+	cfg, err := ini.Load("proxy.ini")
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	proxie := strings.Split(string(proxy), "http_proxy=")[1]
-	proxiee = proxie
+	proxiee = cfg.Section("proxy").Key("http_proxy").String()
 
 	ssl := &http.Transport{
 		TLSClientConfig: &tls.Config{
