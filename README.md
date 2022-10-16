@@ -1,5 +1,6 @@
 # token-checker-proxied
 A concurrent and fast Go script to perform token checking for Discord. It's proxied!
+![tool](https://user-images.githubusercontent.com/48758770/196043992-6a8bb6e5-c4f8-4c0d-bd02-04b9e53ca98a.png)
 
 ```
 # Compiling is not required but if you do not trust the executable , compile the SRC your self. 
