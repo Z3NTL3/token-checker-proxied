@@ -53,9 +53,9 @@ func (c CLIENT) startTokenCheck() error {
 	}
 	defer resp.Body.Close()
 	fmt.Println("\033[1m\033[0;97m[INFO] \033[0;95mTrying to tunnel on PROXY \033[1m\033[0;97m[ " + tunnel + " ]\033[0m")
-	fmt.Println("\033[1m\033[0;97m[INFO] \033[0;32mTunnel success PROXIED! \033[1m\033[0;97m[ " + tunnel + " ]\033[0m\n")
 
 	if resp.StatusCode == 200 {
+		fmt.Println("\033[1m\033[0;97m[INFO] \033[0;32mTunnel success PROXIED! \033[1m\033[0;97m[ " + tunnel + " ]\033[0m\n")
 		if strings.Contains(body, "username") && !strings.Contains(body, "error") {
 			fmt.Println("\033[1m\033[0;97m[INFO] \033[32mGood Token: \033[1m\033[0;97m", token, "\033[0m")
 			c.file.WriteString(token + "\n")
@@ -64,8 +64,10 @@ func (c CLIENT) startTokenCheck() error {
 			fmt.Println("\033[1m\033[0;97m[INFO] \033[31mBad Token: \033[1m\033[0;97m", token, "\033[0m")
 		}
 	} else if !strings.Contains(body, "error") {
+		fmt.Println("\033[1m\033[0;97m[INFO] \033[0;32mTunnel success PROXIED! \033[1m\033[0;97m[ " + tunnel + " ]\033[0m\n")
 		fmt.Println("\033[1m\033[0;97m[INFO] \033[31mBad Token: \033[1m\033[0;97m", token, "\033[0m")
 	} else {
+		fmt.Println("\033[1m\033[0;97m[INFO] \033[0;31mTunnel FAILED\033[0m\n")
 		return errors.New("\033[1m\033[0;97m[INFO] \033[31mRate Limit \033[1m\033[0;97m- Change Proxy and then start the tool again!\033[0m")
 	}
 	return nil
