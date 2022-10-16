@@ -10,6 +10,9 @@ A concurrent and fast Go script to perform token checking for Discord. It's prox
 On your terminal:
 ```./token-checker-layered.exe tokenfile.txt```
 
+### REQUIREMENT
+```Add your proxy in proxy.ini file```
+
 ### How to compile
 One-time run:
 ```go run .```
